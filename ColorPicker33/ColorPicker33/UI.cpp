@@ -1,4 +1,5 @@
 #include "UI.h"
+#include "Application.h"
 
 ID3D11Device* UI::pd3dDevice = nullptr;
 ID3D11DeviceContext* UI::pd3dDeviceContext = nullptr;
@@ -148,7 +149,7 @@ void UI::Render()
     const ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
     bool active = true;
-    while (active)
+    while (active && Application::isActive())
     {
         MSG msg;
         while (::PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE))
@@ -171,8 +172,11 @@ void UI::Render()
 
         ImGui_ImplDX11_NewFrame();
         ImGui_ImplWin32_NewFrame();
+
         ImGui::NewFrame();
         
+        Application::update();
+
         ImGui::EndFrame();
 
         ImGui::Render();
