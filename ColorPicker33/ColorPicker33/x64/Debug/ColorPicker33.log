@@ -1,1 +1,5 @@
-﻿
+﻿  main.cpp
+C:\Users\Magshimim\Desktop\Repos\ColorPicker33\ColorPicker33\ColorPicker33\main.cpp(5,14): error C2731: 'WinMain': function cannot be overloaded
+  C:\Users\Magshimim\Desktop\Repos\ColorPicker33\ColorPicker33\ColorPicker33\main.cpp(5,14):
+  see declaration of 'WinMain'
+  
