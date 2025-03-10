@@ -1,6 +1,8 @@
 #ifndef INCLUDES
 #define INCLUDES
 
+#define APP_NAME "ColorPicker33"
+
 #include <windows.h>
 #include <tchar.h>
 #include <d3d11.h>

@@ -6,13 +6,17 @@
 class Application
 {
 public:
+	// Methods
 	static void update();
 
 	static bool isActive();
 	static void shutdown();
 
 private:
+	// Fields
 	static bool _active;
+	static const ImVec2 _windowSize;
+	static ImGuiWindowFlags_ _flags;
 };
 
 #endif
