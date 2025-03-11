@@ -13,6 +13,9 @@ public:
 	static void shutdown();
 
 private:
+	// Helper Methods
+	static ImVec4 getColorAtCursor();
+
 	// Fields
 	static bool _active;
 	static const ImVec2 _windowSize;
