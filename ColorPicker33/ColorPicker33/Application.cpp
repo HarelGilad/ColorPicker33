@@ -6,6 +6,7 @@ ImGuiWindowFlags_ Application::_flags = (ImGuiWindowFlags_)(ImGuiWindowFlags_NoT
 															ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | 
 															ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoCollapse |
 															ImGuiWindowFlags_NoNav);
+ImVec4 Application::_color = { 0, 0, 0, 1 };
 
 void Application::update()
 {
@@ -15,11 +16,18 @@ void Application::update()
 
 	ImGui::SetNextWindowSize(_windowSize);
 
-	ImVec4 color = getColorAtCursor();
-	ImGui::GetStyle().Colors[ImGuiCol_WindowBg] = color;
+	saveColorAtCursor();
+	ImGui::GetStyle().Colors[ImGuiCol_WindowBg] = _color;
 
 	ImGui::Begin(APP_NAME, &_active, _flags);
 	ImGui::End();
+}
+
+void Application::capture()
+{
+	saveColorAtCursor();
+	const std::string color = getColorHexValue();
+	ImGui::SetClipboardText(color.c_str());
 }
 
 bool Application::isActive()
@@ -32,9 +40,8 @@ void Application::shutdown()
 	_active = false;
 }
 
-ImVec4 Application::getColorAtCursor()
+void Application::saveColorAtCursor()
 {
-	ImVec4 color;
 	COLORREF colorRef;
 	POINT cursorPos;
 
@@ -47,10 +54,21 @@ ImVec4 Application::getColorAtCursor()
 	ReleaseDC(NULL, hdcScreen);
 
 	// Convert into ImVec4
-	color.x = (float)((colorRef & 0x00FF0000) >> 16) / 255.0f;
-	color.y = (float)((colorRef & 0x0000FF00) >> 8) / 255.0f;
-	color.z = (float)((colorRef & 0x000000FF)) / 255.0f;
-	color.w = 1.0f;
+	_color.x = (float)(GetRValue(colorRef)) / 255.0f;
+	_color.y = (float)(GetGValue(colorRef)) / 255.0f;
+	_color.z = (float)(GetBValue(colorRef)) / 255.0f;
+}
 
-	return color;
+std::string Application::getColorHexValue()
+{
+	const size_t len = 8; // # + 3 hex values + null
+	char hexColor[len];
+
+	const int r = (int)(_color.x * 255);
+	const int g = (int)(_color.y * 255);
+	const int b = (int)(_color.z * 255);
+
+	std::snprintf(hexColor, len, "#%02X%02X%02X", r, g, b);
+
+	return std::string(hexColor);
 }

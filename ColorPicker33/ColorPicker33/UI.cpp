@@ -123,7 +123,14 @@ void UI::Render()
     ImGui_ImplWin32_EnableDpiAwareness();
     const WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, _T(APP_NAME), nullptr };
     ::RegisterClassEx(&wc);
-    const HWND hwnd = ::CreateWindow(wc.lpszClassName, _T(APP_NAME), WS_OVERLAPPEDWINDOW, 100, 100, 50, 50, NULL, NULL, wc.hInstance, NULL);
+    const HWND hwnd = ::CreateWindowEx(
+        WS_EX_TOPMOST,  // Makes the window topmost
+        wc.lpszClassName,
+        _T(APP_NAME),
+        WS_POPUP,       // Borderless window
+        100, 100, 50, 50,
+        nullptr, nullptr, wc.hInstance, nullptr
+    );
 
     if (!CreateDeviceD3D(hwnd))
     {
@@ -133,7 +140,7 @@ void UI::Render()
     }
 
     ::ShowWindow(hwnd, SW_HIDE);
-    ::UpdateWindow(hwnd);
+    ::SetForegroundWindow(hwnd);
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -141,7 +148,7 @@ void UI::Render()
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
-    ImGui::GetIO().IniFilename = nullptr;
+    io.IniFilename = nullptr;
 
     ImGui_ImplWin32_Init(hwnd);
     ImGui_ImplDX11_Init(pd3dDevice, pd3dDeviceContext);
@@ -159,14 +166,18 @@ void UI::Render()
 
             if (msg.message == WM_QUIT)
             {
-                active = false;
                 break;
             }
         }
 
         if (GetAsyncKeyState(VK_END) & 1)
         {
-            active = true;
+            break;
+        }
+
+        if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+        {
+            Application::capture();
             break;
         }
 

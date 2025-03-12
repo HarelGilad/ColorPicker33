@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82DB0A85-0211-457E-A72D-681E74A59A9D}|ColorPicker33\\ColorPicker33.vcxproj|C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{82DB0A85-0211-457E-A72D-681E74A59A9D}|ColorPicker33\\ColorPicker33.vcxproj|solutionrelative:ColorPicker33\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{82DB0A85-0211-457E-A72D-681E74A59A9D}|ColorPicker33\\ColorPicker33.vcxproj|C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\UI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{82DB0A85-0211-457E-A72D-681E74A59A9D}|ColorPicker33\\ColorPicker33.vcxproj|solutionrelative:ColorPicker33\\UI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82DB0A85-0211-457E-A72D-681E74A59A9D}|ColorPicker33\\ColorPicker33.vcxproj|C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{82DB0A85-0211-457E-A72D-681E74A59A9D}|ColorPicker33\\ColorPicker33.vcxproj|solutionrelative:ColorPicker33\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{82DB0A85-0211-457E-A72D-681E74A59A9D}|ColorPicker33\\ColorPicker33.vcxproj|C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\Application.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,13 +46,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Application.cpp",
               "DocumentMoniker": "C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\Application.cpp",
               "RelativeDocumentMoniker": "ColorPicker33\\Application.cpp",
               "ToolTip": "C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\Application.cpp",
               "RelativeToolTip": "ColorPicker33\\Application.cpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAA1AAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-09T16:23:52.269Z",
               "EditorCaption": ""
@@ -65,7 +65,7 @@
               "RelativeDocumentMoniker": "ColorPicker33\\Application.h",
               "ToolTip": "C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\Application.h",
               "RelativeToolTip": "ColorPicker33\\Application.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAcwBgAAAAGAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-09T16:22:20.186Z",
               "EditorCaption": ""
@@ -80,18 +80,17 @@
               "RelativeToolTip": "ColorPicker33\\UI.h",
               "ViewState": "AQIAAAkAAAAAAAAAAAAcwBEAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-09T15:58:54.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T15:58:54.4Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UI.cpp",
               "DocumentMoniker": "C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\UI.cpp",
               "RelativeDocumentMoniker": "ColorPicker33\\UI.cpp",
               "ToolTip": "C:\\Users\\Magshimim\\Desktop\\Repos\\ColorPicker33\\ColorPicker33\\ColorPicker33\\UI.cpp",
               "RelativeToolTip": "ColorPicker33\\UI.cpp",
-              "ViewState": "AQIAAIcAAAAAAAAAAAAAAJAAAAAAAAAA",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAmwI0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-09T15:58:44.658Z",
               "EditorCaption": ""
