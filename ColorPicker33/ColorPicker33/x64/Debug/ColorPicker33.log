@@ -1,5 +1,14 @@
-﻿  main.cpp
-C:\Users\Magshimim\Desktop\Repos\ColorPicker33\ColorPicker33\ColorPicker33\main.cpp(5,14): error C2731: 'WinMain': function cannot be overloaded
-  C:\Users\Magshimim\Desktop\Repos\ColorPicker33\ColorPicker33\ColorPicker33\main.cpp(5,14):
-  see declaration of 'WinMain'
-  
+﻿  Application.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_dx11.cpp
+  imgui_impl_win32.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  main.cpp
+  UI.cpp
+  Generating Code...
+  ColorPicker33.vcxproj -> C:\Users\Magshimim\Desktop\Repos\ColorPicker33\ColorPicker33\x64\Debug\ColorPicker33.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
