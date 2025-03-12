@@ -10,22 +10,38 @@ ImVec4 Application::_color = { 0, 0, 0, 1 };
 
 void Application::update()
 {
-	ImGuiIO& io = ImGui::GetIO();
-	const ImVec2 pos = ImVec2(io.MousePos.x - _windowSize.x, io.MousePos.y - _windowSize.y);
+	POINT cursorPos;
+	// Get cursor position
+
+	GetCursorPos(&cursorPos);
+
+	// Set window position next to cursor
+	const ImVec2 pos = ImVec2(cursorPos.x - _windowSize.x, cursorPos.y - _windowSize.y);
 	ImGui::SetNextWindowPos(pos);
 
+	// Set window size (fixed size)
 	ImGui::SetNextWindowSize(_windowSize);
 
-	saveColorAtCursor();
+	// Get color at current position on screen & set it as the background
+	saveColorAtPixel(cursorPos);
 	ImGui::GetStyle().Colors[ImGuiCol_WindowBg] = _color;
 
+	// Draw the window
 	ImGui::Begin(APP_NAME, &_active, _flags);
 	ImGui::End();
 }
 
 void Application::capture()
 {
-	saveColorAtCursor();
+	POINT cursorPos;
+
+	// Get cursor position
+	GetCursorPos(&cursorPos);
+
+	// Save color
+	saveColorAtPixel(cursorPos);
+
+	// Copy to clipboard as hex
 	const std::string color = getColorHexValue();
 	ImGui::SetClipboardText(color.c_str());
 }
@@ -40,16 +56,13 @@ void Application::shutdown()
 	_active = false;
 }
 
-void Application::saveColorAtCursor()
+void Application::saveColorAtPixel(const POINT& cursorPos)
 {
+	HDC hdcScreen;
 	COLORREF colorRef;
-	POINT cursorPos;
-
-	// Get cursor pos
-	GetCursorPos(&cursorPos);
 
 	// Get color at mouse pos
-	HDC hdcScreen = GetDC(NULL);
+	hdcScreen = GetDC(NULL);
 	colorRef = GetPixel(hdcScreen, cursorPos.x, cursorPos.y);
 	ReleaseDC(NULL, hdcScreen);
 

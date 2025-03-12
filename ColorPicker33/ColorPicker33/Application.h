@@ -16,7 +16,7 @@ public:
 
 private:
 	// Helper Methods
-	static void saveColorAtCursor();
+	static void saveColorAtPixel(const POINT& cursorPos);
 	static std::string getColorHexValue();
 
 	// Fields
