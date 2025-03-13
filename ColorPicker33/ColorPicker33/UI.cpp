@@ -121,16 +121,10 @@ LRESULT WINAPI UI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 void UI::Render()
 {
     ImGui_ImplWin32_EnableDpiAwareness();
+
     const WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, _T(APP_NAME), nullptr };
     ::RegisterClassEx(&wc);
-    const HWND hwnd = ::CreateWindowEx(
-        WS_EX_TOPMOST,  // Makes the window topmost
-        wc.lpszClassName,
-        _T(APP_NAME),
-        WS_POPUP,       // Borderless window
-        100, 100, 50, 50,
-        nullptr, nullptr, wc.hInstance, nullptr
-    );
+    const HWND hwnd = ::CreateWindowEx(WS_EX_TOPMOST, wc.lpszClassName, _T(APP_NAME), WS_POPUP, 100, 100, 50, 50, nullptr, nullptr, wc.hInstance, nullptr);
 
     if (!CreateDeviceD3D(hwnd))
     {
@@ -144,6 +138,7 @@ void UI::Render()
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+
     ImGuiIO& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
@@ -155,8 +150,7 @@ void UI::Render()
 
     const ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-    bool active = true;
-    while (active && Application::isActive())
+    while (Application::isActive())
     {
         MSG msg;
         while (::PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE))
@@ -166,18 +160,21 @@ void UI::Render()
 
             if (msg.message == WM_QUIT)
             {
+                Application::shutdown();
                 break;
             }
         }
 
-        if (GetAsyncKeyState(VK_END) & 1)
+        if (GetAsyncKeyState(VK_ESCAPE) & 0x8000)
         {
+            Application::shutdown();
             break;
         }
 
         if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
         {
             Application::capture();
+            Application::shutdown();
             break;
         }
 
